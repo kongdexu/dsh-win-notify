@@ -1,5 +1,9 @@
 # dsh-win-notify
 
+[![npm](https://img.shields.io/npm/v/dsh-win-notify.svg)](https://www.npmjs.com/package/dsh-win-notify)
+[![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-0078d6.svg)](#系统要求-requirements)
+[![License](https://img.shields.io/npm/l/dsh-win-notify.svg)](LICENSE)
+
 > DSH（DeepSeek Harness）宿主端插件：任务完成 / 需要用户输入 / 需要审批时，弹出真正的 **Windows 系统 Toast**（进入通知中心、来源显示 DeepSeek Harness、黑底白鲸鱼图标）。
 >
 > ⚠️ **仅支持 Windows（Windows 10/11）**——通过 WinRT Toast Notification API 实现，非 Windows 系统安装后自动空转（不报错、不注册任何事件）。
