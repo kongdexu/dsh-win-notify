@@ -1,0 +1,26 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    # Windows: the plugin is Windows-only and the apply()-wiring tests run the
+    # Windows path (the platform guard branch is asserted on every OS).
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run check
+      - name: Ensure committed lib/ matches src/
+        run: |
+          git diff --exit-code -- lib
+          if ($LASTEXITCODE -ne 0) {
+            Write-Error "lib/ is out of date. Run `npm run build` and commit the result."
+            exit 1
+          }
