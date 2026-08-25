@@ -1,0 +1,67 @@
+{
+  "name": "dsh-win-notify",
+  "version": "0.1.0",
+  "description": "DSH (DeepSeek Harness) host plugin for Windows: real OS-level toasts that persist in Notification Center — 任务完成 / 需要您的输入 / 需要您的审批. Windows-only (WinRT Toast API via a self-built .NET helper EXE).",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "os": [
+    "win32"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:smoke": "node test/smoke.mjs",
+    "check": "npm run typecheck && npm run build && npm run test && npm run test:smoke",
+    "prepack": "npm run build"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE",
+    "docs"
+  ],
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "host-plugin",
+    "windows",
+    "toast",
+    "notification",
+    "notify",
+    "winrt"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kongdexu/dsh-win-notify.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
+  }
+}

@@ -1,0 +1,7 @@
+# dsh-win-notify bundle patch layer — insert the plugin into the profile tree.
+# The row name resolves the package main (lib/index.js), which exports the
+# Cordis plugin { name: 'dsh-win-notify', inject: ['subprocess'], apply }.
+# Windows-only: on non-Windows hosts apply() early-returns and the row stays inert.
+- insert:
+    - id: dsh-win-notify
+      name: dsh-win-notify

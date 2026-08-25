@@ -1,0 +1,17 @@
+# Force LF line endings everywhere so the built ESM, YAML patch and docs stay
+# clean across Windows/macOS/Linux checkouts (and don't churn the registry PRs).
+* text=auto eol=lf
+*.js text eol=lf
+*.mjs text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.ts text eol=lf
+*.cs text eol=lf
+*.d.ts text eol=lf
+
+# Binary helper artifacts: never text-mangled, never diffed.
+*.exe binary
+*.ico binary
+*.png binary
